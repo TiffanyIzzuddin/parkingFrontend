@@ -29,7 +29,8 @@
 
         {{-- Left Main Sidebar --}}
         @if(!$layoutHelper->isLayoutTopnavEnabled())
-            @include('adminlte::partials.sidebar.left-sidebar')
+            {{-- @include('adminlte::partials.sidebar.left-sidebar') --}}
+            @include('adminlte::partials.sidebar.sidebar')
         @endif
 
         {{-- Content Wrapper --}}
@@ -47,6 +48,7 @@
         {{-- Right Control Sidebar --}}
         @if(config('adminlte.right_sidebar'))
             @include('adminlte::partials.sidebar.right-sidebar')
+            {{-- @include('adminlte::partials.sidebar.sidebar') --}}
         @endif
 
     </div>

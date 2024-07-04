@@ -1,4 +1,4 @@
-<aside class="main-sidebar" style="background-color:#2B465B">
+<aside class="main-sidebar" style="background-color:#ffffff">
 
     {{-- Sidebar brand logo --}}
     @if(config('adminlte.logo_img_xl'))
@@ -19,7 +19,7 @@
                     data-accordion="false"
                 @endif>
                 {{-- Configured sidebar links --}}
-                {{-- @each('adminlte::partials.sidebar.menu-item', $adminlte->menu('sidebar'), 'item') --}}
+                @each('adminlte::partials.sidebar.menu-item', $adminlte->menu('sidebar'), 'item')
             </ul>
         </nav>
     </div>
