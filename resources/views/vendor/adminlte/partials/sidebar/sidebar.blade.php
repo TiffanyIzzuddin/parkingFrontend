@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.index') }}" class="nav-link" style="color: #E0E0E0;">
+                    <a href="{{ route('users.index') }}" class="nav-link" style="color: #E0E0E0;">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             Pengaturan data admin

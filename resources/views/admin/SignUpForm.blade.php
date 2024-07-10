@@ -40,28 +40,30 @@
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h4 class="card-title text-center mb-4">Login Form</h4>
-                                <form method="POST" action="{{ route('login') }}">
+                                <form action="{{ route('users.store') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="no_telp">Nomor Telephone</label>
+                                        <input type="text" name="no_telp" id="no_telp" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="no_telp">Jenis Kelamin</label>
+                                        <input type="text" name="gender" id="gender" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <input type="email" name="email" id="email" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <input type="password" name="password" id="password" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                        <button type="submit" class="btn btn-primary">Create User</button>
                                     </div>
                                 </form>
                             </div>

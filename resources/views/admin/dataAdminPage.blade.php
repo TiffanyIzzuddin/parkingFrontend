@@ -2,14 +2,16 @@
 
 @section('title', 'Admin Page')
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 @section('content')
     <!-- Upper Card -->
     <div class="custom-double-content">
-        <div class="card mb-3 upper-card" style="height: 8cm;"  >
+        <div class="card mb-3 upper-card" style="height: 8cm;">
             <div class="row no-gutters">
                 <div class="col-md-8">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                     <br><br>
+                        <br><br>
                         <h3 class="text-center mb-3">Bella Saputra</h3>
                         <h5 class="text-center mb-2">bellaSaput053@gmail.com</h5>
                         <h5 class="text-center mb-2">Laki-laki</h5>
@@ -36,8 +38,7 @@
 
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                {{-- <a href="{{ route('admin.create') }}" class="btn btn-primary">Tambah Admin</a> --}}
-                <a href="#" class="btn btn-primary">Tambah Admin</a>
+                <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah Admin</a>
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
                         <select class="form-control form-control-navbar">
@@ -69,35 +70,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($admins as $admin) --}}
-                    <tr>
-                        {{-- <td>{{ $admin->id }}</td>
-                        <td>{{ $admin->name }}</td>
-                        <td>{{ $admin->gender }}</td>
-                        <td>{{ $admin->email }}</td>
-                        <td>{{ $admin->phone }}</td>
-                        <td>
-                            <a href="{{ route('admin.edit', $admin->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('admin.destroy', $admin->id) }}" method="POST" style="display:inline;">
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user['id'] }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['gender'] }}</td>
+                            <td>{{ $user['email'] }}</td>
+                            <td>{{ $user['no_telp'] }}</td>
+
+                            {{-- <td>
+                            <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </td> --}}
+                            <td>
+                                {{-- <a href="{{ route('users.update', $user->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a> --}}
+                                <a href="{{ route('users.edit', $user['id']) }}" class="btn btn-sm btn-warning"><i
+                                        class="fas fa-edit"></i></a>
 
-                        <td>
-                            <a href="#" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                            
-                            <form action="#" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                
-                            </form>
-                        </td>
 
-                    </tr>
-                    {{-- @endforeach --}}
+                                <form action="{{ route('users.delete', $user['id']) }}" method="POST"
+                                    style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger"><i
+                                            class="fas fa-trash"></i></button>
+
+                                </form>
+                            </td>
+
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
