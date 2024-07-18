@@ -12,6 +12,8 @@ class UserController extends Controller
     {
         $response = Http::get('http://localhost:3000/users');
         $data = $response->json();
+        // 'user' = auth()->user();
+        // compact('data', 'user');
         return view('admin.dataAdminPage', ['users' => $data]);
     }
 

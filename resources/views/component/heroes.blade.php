@@ -86,7 +86,7 @@
                         <a class="nav-link" href="#">Profile</a>
                     </li> --}}
                 </ul>
-                <a href="#" class="btn btn-outline-light ms-lg-3">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-light ms-lg-3">Login</a>
             </div>
         </div>
     </nav>

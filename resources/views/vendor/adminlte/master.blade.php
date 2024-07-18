@@ -36,7 +36,7 @@
     @endif
 
     {{-- Extra Configured Plugins Stylesheets --}}
-    @include('adminlte::plugins', ['type' => 'css'])
+    {{-- @include('adminlte::plugins', ['type' => 'css']) --}}
 
     {{-- Livewire Styles --}}
     @if(config('adminlte.livewire'))
@@ -91,7 +91,7 @@
     @endif
 
     {{-- Extra Configured Plugins Scripts --}}
-    @include('adminlte::plugins', ['type' => 'js'])
+    {{-- @include('adminlte::plugins', ['type' => 'js']) --}}
 
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))

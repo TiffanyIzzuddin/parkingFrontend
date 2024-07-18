@@ -5,8 +5,9 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h1>Tabel Laporan</h1>
+        {{-- <a href="{{ route('transactions.download') }}" class="btn btn-primary">Download PDF</a> --}}
         {{-- <a href="{{ route('reports.download') }}" class="btn btn-primary">Download Report</a> --}}
-        <a href="#" class="btn btn-primary">Download Report</a>
+        <a href="{{ route('transactions.download') }}" class="btn btn-primary">Download Report</a>
     </div>
 @stop
 
@@ -14,7 +15,7 @@
     <div class="card">
         <div class="card-body">
             <table class="table table-bordered table-striped">
-               <thead class="custom-thead">
+                <thead class="custom-thead">
                     <tr>
                         <th>ID number</th>
                         <th>Admin Name</th>
@@ -26,17 +27,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach($reports as $report)
-                    <tr>
-                        <td>{{ $report->id }}</td>
-                        <td>{{ $report->admin_name }}</td>
-                        <td>{{ $report->plate_number }}</td>
-                        <td>{{ $report->entry_time }}</td>
-                        <td>{{ $report->out_time }}</td>
-                        <td>{{ $report->total_payment }}</td>
-                        <td>{{ $report->status }}</td>
-                    </tr>
-                    @endforeach --}}
+                    @foreach($transactions as $transaction)
+                        <tr>
+                            <td>{{ $transaction['id'] }}</td>
+                            <td>{{ $transaction['id_user'] }}</td>
+                            <td>{{ $transaction['plate_car'] }}</td>
+                            <td>{{ $transaction['entry_time'] }}</td>
+                            <td>{{ $transaction['out_time'] }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -44,8 +43,8 @@
 @stop
 
 <style>
-   .custom-thead {
-       background-color: #367FA9;
-       color: white;
-   }
+    .custom-thead {
+        background-color: #367FA9;
+        color: white;
+    }
 </style>
